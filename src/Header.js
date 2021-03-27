@@ -1,17 +1,24 @@
 import React from 'react';
-import logo from './logo.png';
+import logo from './image0.jpeg';
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { Link } from 'react-router-dom';
+import { useStateValue } from './StateProvider';
 
 
 function Header() {
+    //pull info from data layer
+    const [ {cart} , dispatch] = useStateValue();
+    
     return (
         <div className='header'>
-            <img 
-                className='header_logo'
-                src ={logo}
-            />
+            <Link to='/'>
+                <img 
+                    className='header_logo'
+                    src ={logo} alt =''
+                />
+            </Link>
         <div className = 'header_search' >
             <input
             className='header_search' type ='text' />
@@ -24,9 +31,11 @@ function Header() {
                 Hello Guest
             </div>    
             <div className = 'header_nav_cart'>
+                    <Link to='/checkout'>
                     <ShoppingCartIcon
                     className='header_shoppingcartIcon' />
-                  <span className='header_shoppingcartCount'>0</span>
+                    </Link>
+                  <span className='header_shoppingcartCount'>{cart?.length}</span>
             </div>
         </div>
 

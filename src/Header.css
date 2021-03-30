@@ -2,11 +2,12 @@
   height: 70px;
   display: flex;
   align-items: center;
-  background-color: #f3eaeaf8;
+  background-color: #070606f8;
   position: sticky;
   top: 0;
   z-index: 100;
 }
+
 .header_nav {
   display: flex;
   justify-content: space-evenly;
@@ -21,16 +22,16 @@
 .header_searchIcon {
   padding: 5px;
   height: 22px !important;
+  background-color: cornflowerblue;
 }
 
 .header_search {
   display: flex;
   flex: 1;
   align-items: center;
-  border-radius: 24px;
-  height: 22px;
+  height: 28px;
   font-size: 25px;
-  font-weight: 500;
+  font-weight: 200;
 }
 
 .header_nav_user {
@@ -41,6 +42,9 @@
   font-size: 25px;
   font-weight: 500;
 }
+.header_nav > a {
+  text-decoration: none;
+}
 
 .header_nav_cart {
   display: flex;
@@ -48,6 +52,7 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .header_shoppingcartCount {
   margin-left: 10px;
   margin-right: 10px;

@@ -17,3 +17,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.search_test {
+  font-size: 25px;
+  font-weight: 200;
+}

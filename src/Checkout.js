@@ -7,12 +7,13 @@ import Subtotal from './Subtotal';
 function Checkout() {
    
     // get access to the cart
-    const [ {cart} , dispatch] = useStateValue();   
+    const [ {user, cart} , dispatch] = useStateValue();   
     
     return (
         <div className='checkout'>
             <div className='checkout_left'>
                 <h2 className='checkout_title'>Your shopping cart</h2>
+                <h3>Hello {user? user.email : 'Guest'}</h3>
             
                 {cart.map( item => (
                     <CheckoutProduct 
@@ -22,6 +23,8 @@ function Checkout() {
                         price={item.price}
                         rating={item.rating}
                     /> ))}
+            <input className='search_test' type='text' />
+            
             </div>
 
             <div className='checkout_right'>

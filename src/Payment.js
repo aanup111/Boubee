@@ -1,4 +1,4 @@
-import { useStripe, useElements, cardElement, CardElement } from '@stripe/react-stripe-js';
+import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import React, { useState, useEffect } from 'react'
 import CheckoutProduct from './CheckoutProduct';
 import './Payment.css'
@@ -7,6 +7,7 @@ import CurrencyFormat from 'react-currency-format';
 import { getCartTotal } from './Reducer';
 import { Link, useHistory } from 'react-router-dom';
 import axios from './Axios';
+import { db } from './Firebase';
 
 
 function Payment() {
@@ -39,6 +40,9 @@ function Payment() {
         getClientSecret();
      }, [cart])
 
+     console.log('SHHHH---', clientSecret)
+
+
    // process card payment
    const handleSubmit = async (event) => {
         event.preventDefault();
@@ -47,13 +51,29 @@ function Payment() {
         // uses client secret to send all the info to stripe
         const payload = await stripe.confirmCardPayment(clientSecret,  {
            payment_method: {
-                card: elements.getElement(cardElement)
+                card: elements.getElement(CardElement)
            } 
         }).then(({ paymentIntent }) => {
             // paymentIntent = payment confirmation
+            // usinng noSQL to connect user to order in database
+            db.collection('users')
+              .doc(user?.uid)
+              .collection('orders')
+              .doc(paymentIntent.uid)
+              .set({
+                  cart: cart,
+                  amount: paymentIntent.amount,
+                  created: paymentIntent.created
+              })
+
+
             setSucceeded(true);
             setError(null);
             setProcessing(false);
+
+            dispatch({
+                type: 'EMPTY_CART'
+            })
 
             history.replace('/orders')
         })

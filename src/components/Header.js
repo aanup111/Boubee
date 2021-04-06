@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './image0.jpeg';
-import './Header.css';
+import logo from '../images/logo.png';
+import '../css/Header.css';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Link } from 'react-router-dom';
-import { useStateValue } from './StateProvider';
-import { auth } from './Firebase';
+import { useStateValue } from '../StateProvider';
+import { auth } from '../Firebase';
 
 
 function Header() {
@@ -20,12 +20,12 @@ function Header() {
     
     return (
         <div className='header'>
-            <Link to='/'>
+         <Link to='/'>  
                 <img 
                     className='header_logo'
-                    src ='' alt =''
+                    src ={logo} alt =''
                 />
-            </Link>
+         </Link>  
         <div className = 'header_search' >
             <input
             className='header_search' type ='text' />
@@ -36,10 +36,17 @@ function Header() {
         <div className = 'header_nav'>
             <Link to ={!user && '/login'}>
                 <div onClick={handleAuthentication} className = 'header_nav_user'>
-                <span>Hello {!user? 'Guest' : user.email}</span> 
+                <span>Hello {!user? 'Guest' : user.email.split('@')[0]}</span> 
                 <span> {user? 'Sign Out' : 'Sign In'}</span>
                 </div>
-            </Link>      
+            </Link>       
+            
+            <Link to ={'/orders'}>
+                <div className='header_nav_orders'>
+                    <span>Order history</span>
+                </div>
+            </Link>
+                
             <div className = 'header_nav_cart'>
                     <Link to='/checkout'>
                     <ShoppingCartIcon

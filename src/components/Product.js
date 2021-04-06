@@ -1,6 +1,6 @@
 import React from 'react'
-import './Product.css'
-import { useStateValue } from './StateProvider';
+import '../css/Product.css'
+import { useStateValue } from '../StateProvider';
 
 function Product({id, title, image, price, rating}) {
     //pull info from data layer

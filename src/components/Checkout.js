@@ -1,7 +1,7 @@
 import React from 'react';
-import './Checkout.css';
+import '../css/Checkout.css';
 import CheckoutProduct from './CheckoutProduct';
-import { useStateValue } from './StateProvider';
+import { useStateValue } from '../StateProvider';
 import Subtotal from './Subtotal';
 
 function Checkout() {
@@ -13,7 +13,7 @@ function Checkout() {
         <div className='checkout'>
             <div className='checkout_left'>
                 <h2 className='checkout_title'>Your shopping cart</h2>
-                <h3>Hello {user? user.email : 'Guest'}</h3>
+                <h3>Hello {user? user.email.split('@')[0] : 'Guest, please sign in to continue'}</h3>
             
                 {cart.map( item => (
                     <CheckoutProduct 
@@ -23,7 +23,6 @@ function Checkout() {
                         price={item.price}
                         rating={item.rating}
                     /> ))}
-            <input className='search_test' type='text' />
             
             </div>
 

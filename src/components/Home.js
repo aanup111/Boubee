@@ -1,7 +1,7 @@
 import React from 'react'
-import './Home.css'
+import '../css/Home.css'
 import Product from './Product'
-import backgroundImage from './background.PNG'
+import backgroundImage from '../images/background.PNG'
 const title = 'Rasberry Lip Gloss';
 const image =  backgroundImage;
 const price = 10.99; 

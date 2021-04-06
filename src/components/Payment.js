@@ -1,13 +1,13 @@
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import React, { useState, useEffect } from 'react'
 import CheckoutProduct from './CheckoutProduct';
-import './Payment.css'
-import { useStateValue } from './StateProvider';
+import '../css/Payment.css'
+import { useStateValue } from '../StateProvider';
 import CurrencyFormat from 'react-currency-format';
-import { getCartTotal } from './Reducer';
+import { getCartTotal } from '../Reducer';
 import { Link, useHistory } from 'react-router-dom';
-import axios from './Axios';
-import { db } from './Firebase';
+import axios from '../Axios';
+import { db } from '../Firebase';
 
 
 function Payment() {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import './Login.css'
-import logo from './image0.jpeg'
+import '../css/Login.css'
+import logo from '../images/image0.jpeg'
 import { Link, useHistory } from 'react-router-dom';
-import { auth } from './Firebase';
+import { auth } from '../Firebase';
 
 
 function Login() {

@@ -1,16 +1,16 @@
-import './App.css';
-import Header from './Header'
-import Home from './Home';
-import Checkout from './Checkout'
+import './css/App.css';
+import Header from './components/Header'
+import Home from './components/Home';
+import Checkout from './components/Checkout'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from './Login';
+import Login from './components/Login';
 import { useEffect } from 'react';
 import { auth } from './Firebase';
 import { useStateValue } from './StateProvider';
-import Payment from './Payment';
+import Payment from './components/Payment';
 import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js';
-import Orders from './Orders'
+import Orders from './components/Orders'
 
 // key for Stripe payment processing
 const promise = loadStripe('pk_test_51IanpZGS67IcsTs1tTCvW5WCl7wrW6OBejCITPkGSvsx4KKNVZpTFkzq3tVeNX7wlFuplf2afexF6YF6tfW03P3h0098hTDQu8');

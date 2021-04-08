@@ -30,7 +30,7 @@ useEffect(() => {
     return (
         <div className='orders'>
             <h1>Your orders</h1>
-
+            <h2>{!user? 'Please login to view order history' : ''}</h2>
             <div className='orders_order'>
                 {orders?.map(order => (
                     <Order order={order} />

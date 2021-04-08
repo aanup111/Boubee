@@ -92,21 +92,9 @@ function Payment() {
         <div className='payment'>
             <div className ='payment_container'>
                 <h1>Checkout {cart.length} items</h1>
-
                 <div className ='payment_section'>
                     <div className ='payment_title'>
-                        <h3>Delivery Address</h3>
-                    </div>
-                    <div className ='payment_address'>
-                        <p>{user?.email}</p>
-                        <p>123 street</p>
-                        <p>Vancouver, BC</p>
-                    </div>
-                </div>
-
-                <div className ='payment_section'>
-                    <div className ='payment_title'>
-                        <h3>Review items and delivery</h3>
+                        <h3>Review items</h3>
                     </div>
                     <div className ='payment_items'>
                         {cart.map(item => (
@@ -147,19 +135,9 @@ function Payment() {
                               </button>      
                              </div>
                                  {error && <div>{error}</div>}       
-                          </form>                  
-                        
-
-                                      
-
+                          </form>                                                
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
         </div>
     )
